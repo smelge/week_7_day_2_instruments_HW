@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const instrumentInfoDisplay = new InstrumentInfoView(infoDiv);
   instrumentInfoDisplay.bindEvents();
 
+  // const instrumentList = document.querySelector('ul#instrument-list');
+  // const instrumentListDisplay = new Instrument 
+
   const instrumentDataSource = new InstrumentFamilies(InstrumentData);
   instrumentDataSource.bindEvents();
 });

@@ -18,7 +18,9 @@ InstrumentInfo.prototype.render = function(instrument){
   const listTitle = document.createElement('h3');
   const listArray = instrument.instruments;
   const listContent = document.createElement('ul');
-  const listItem = document.createElement('li');
+  // UL element has been created, now set an ID to identify it
+  listContent.setAttribute('id','instrument-list');
+
   infoDescription.textContent = instrument.description;
   infoTitle.textContent = instrument.name;
   listTitle.textContent = "Instruments Include:";
@@ -28,11 +30,18 @@ InstrumentInfo.prototype.render = function(instrument){
   this.container.appendChild(infoDescription);
   this.container.appendChild(listTitle);
   this.container.appendChild(listContent);
+  console.log('List Array: ',listArray)
 
+  // locate the UL element using the id we set and assign it to a variable
+  var ul = document.getElementById("instrument-list");
+
+  // Take the array of instrument and iterate through each one
   listArray.forEach((newInstrument) => {
+    // create a list element and assign the instrument to it
     const option = document.createElement('li');
     option.textContent = newInstrument;
-    this.container.ul.appendChild(option);
+    // append new element to the ul using th element we got earlier.
+    ul.appendChild(option);
   });
 };
 
